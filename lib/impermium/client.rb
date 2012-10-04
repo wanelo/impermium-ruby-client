@@ -3,15 +3,17 @@ require "faraday"
 require "faraday_middleware"
 require "impermium/configuration"
 require "impermium/content"
+require "impermium/account"
+require "impermium/messaging"
 require "impermium/errors"
-require "impermium/user"
 require "faraday/raise_4xx"
 
 module Impermium
   class Client
     include Configuration
     include Content
-    include User
+    include Account
+    include Messaging
     
     def initialize(options = {})
       options = Impermium.options.merge(options)

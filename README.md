@@ -2,9 +2,7 @@
 
 Ruby wrapper for the [Impermium API](http://impermium.com).
 
-* gem version 1.0.0 supports the Impermium API version 3.1
-* gem version 1.1.0 supports the Impermium API version 3.1 (upgraded hashie and yajl-ruby gems)
-* gem version 1.2.0 supports the Impermium API version 3.1 (upgraded dependency on faraday_middleware gem)
+* gem version 1.0.0 supports the Impermium API version 4.0
 
 ## Usage ##
 
@@ -23,7 +21,7 @@ which is actually short for
 Constructor accepts a hash of options that can be used to configure the Impermium client. Valid hash keys are:
 
 * `:adapter` (sets Faraday adapter)
-* `:api_version` (sets Impermium API version - default 3.1)
+* `:api_version` (sets Impermium API version - default 4.0)
 * `:api_key` (sets API key)
 * `:client_name` (sets client name)
 * `:client_id` (sets client ID)
