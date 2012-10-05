@@ -1,7 +1,7 @@
 module Impermium
   module Post
     REPORTER_USER_TYPE_VALUES = ["ENDUSER", "MODERATOR"] # => default first
-    def post(post_id, user_id, content, options={}, &block)
+    def post(user_id, post_id, content, options={}, &block)
       options.merge!(
         :post_id => post_id,
         :user_id => user_id,
@@ -26,7 +26,7 @@ module Impermium
         :reporter_user_type => REPORTER_USER_TYPE_VALUES.include?(reporter_user_type) ? reporter_user_type : REPORTER_USER_TYPE_VALUES.first,
         :desired_result => desired_result
         )
-      rest_post("blog_post/user_feedback", options, &block)
+      rest_post("post/user_feedback", options, &block)
     end
   end
 end

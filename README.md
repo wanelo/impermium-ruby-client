@@ -1,4 +1,4 @@
-# Impermium #
+# Impermium Ruby Client#
 
 Ruby wrapper for the [Impermium API](http://impermium.com).
 
@@ -46,53 +46,42 @@ Finally, the Impermium client can be configured through a block with:
 
 Each method accepts the mandatory arguments of the corresponding API call, and takes an options hash and a block as optional arguments. Here is the list of all supported methods and their mandatory arguments:
  
-* __USER__
-    + __Account:__
-      - `client.account(user_id, enduser_ip)`
-      - `client.account_attempt(enduser_ip)`
-      - `client.account_login(user_id, enduser_ip)`
-      - `client.account_analyst_feedback(analyst_id, user_id, desired_result)`
-      - `client.account_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, user_id, desired_result)`
-      
+* __ACCOUNT__
+    + __Signup:__
+      - `client.signup(user_id)`
+      - `client.signup_analyst_feedback(user_id, desired_result)`
     + __Profile:__
-      - `client.profile(user_id, profile_id, enduser_ip)`
-      - `client.profile_analyst_feedback(profile_id, analyst_id, desired_result)`
-      - `client.profile_user_feedback(profile_id, rep_usr_id, rep_usr_type, reporter_ip, desired_result)`
+      - `client.profile(user_id, profile_id)`
+      - `client.profile_analyst_feedback(user_id, profile_id, desired_result)`
+    + __Login:__
+      - `client.login(user_id, attempt_id)`
+      - `client.login_analyst_feedback(user_id, attempt_id, desired_result)`
 
 * __CONTENT__
-    + __Blog post:__
-      - `client.blog_post(user_id, blog_post_id, content, blog_post_permalink, blog_url, enduser_ip)`
-      - `client.blog_post_analyst_feedback(analyst_id, blog_post_id, desired_result)`
-      - `client.blog_post_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, blog_post_id, desired_result)`
+    + __Post:__
+      - `client.post(user_id, post_id, content)`
+      - `client.post_analyst_feedback(user_id, post_id, desired_result)`
+      - `client.post_user_feedback(user_id, post_id, reporter_user_type, desired_result)`
   
-    + __Bookmark:__
-      - `client.bookmark(user_id, bookmark_id, bookmark_url, enduser_ip)`
-      - `client.bookmark_like(user_id, bookmark_id, bookmark_url, like_value, enduser_ip)`
-      - `client.bookmark_analyst_feedback(analyst_id, bookmark_id, desired_result)`
-      - `client.bookmark_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, bookmark_id, desired_result)`
-      
-    + __Comment:__
-      - `client.comment(user_id, comment_id, content, comment_permalink, article_permalink, enduser_ip)`
-      - `client.comment_analyst_feedback(analyst_id, comment_id, desired_result)`
-      - `client.comment_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, comment_id, desired_result)`
-      
-    + __Connection:__
-      - `client.connection(operation, connection_type, connection_id, requester_user_id, responder_user_id, enduser_ip)`
-      - `client.connection_analyst_feedback(analyst_id, connection_type, connection_id, desired_result)`
-      - `client.connection_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, connection_type, connection_id, desired_result)`
-      
-    + __Listing:__
-      - `client.listing(user_id, listing_id, content, listing_permalink, enduser_ip)`
-      - `client.listing_analyst_feedback(analyst_id, listing_id, desired_result)`
-      - `client.listing_user_feedback(rep_usr_id, rep_usr_type, reporter_ip, listing_id, desired_result)`
+    + __Url:__
+      - `client.url(user_id, url)`
+      - `client.url_analyst_feedback(user_id, url, desired_result)`
+      - `client.url_user_feedback(user_id, url, reporter_user_type, desired_result)`
+
+* __MESSAGING__
+    + __Message:__
+      - `client.message(user_id, message_id, content)`
+      - `client.message_analyst_feedback(user_id, message_id, desired_result)`
+      - `client.message_user_feedback(user_id, message_id, desired_result)`
+  
 
 Additional arguments can be passed through the hash which is the last argument for every method
 
-    client.account('33', '255.255.255.255', {:alias => "user33", :password_hash=>'7d222a5d269a'})
+    client.signup('cool_user_id_33', {:alias => "user33", :password_hash=>'7d222a5d269a'})
 
 If request headers have to be set it can be done through a block:
 
-    Impermium.account('33', '255.255.255.255') do |req|
+    Impermium.signup('cool_user_id_33') do |req|
       req.headers = {:http_user_agent => "Impermium gem 1.0.0"}
     end
 
@@ -100,7 +89,7 @@ You can find the complete arguments lists and types in the official Impermium AP
 
 ### Responses ###
 
-Any method call receiving a successful response from impermium API will return a Hash-like structure containing the body of the response, typically including `response_id`, `timestamp` and possibly `spam_classifier` and any other additional classifiers.
+Any method call receiving a successful response from impermium API will return a Hash-like structure containing the body of the response, typically including `response_id`, `timestamp` and a nested Hash with key <API_VERSION> and a deeper hash object which has "action", "tags", "tag_details", etc.
 
 Any 4XX response will raise an Impermium Exception with the body of the response in the error message.
 
@@ -111,8 +100,5 @@ Any 4XX response will raise an Impermium Exception with the body of the response
 
 ## Credits ##
 
-Here is the [list of contributors](https://github.com/weheartit/impermium/contributors)\.
+Here is the [list of contributors](https://github.com/impermium/impermium-ruby-client/contributors)\.
 
-## License ##
-
-Copyright 2012 WHI Inc. \([weheartit.com](http://weheartit.com)\), released under the MIT license.
