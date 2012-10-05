@@ -7,7 +7,7 @@ module Impermium
         :user_id => user_id,
         :content => content,
         )
-      post("post", options, &block)
+      rest_post("post", options, &block)
     end
     
     def post_analyst_feedback(user_id, post_id, desired_result, options={}, &block)
@@ -16,7 +16,7 @@ module Impermium
         :post_id => post_id,
         :desired_result => desired_result
         )
-      post("post/analyst_feedback", options, &block)
+      rest_post("post/analyst_feedback", options, &block)
     end
     
     def post_user_feedback(user_id, post_id, reporter_user_type, desired_result, options={}, &block)
@@ -26,7 +26,7 @@ module Impermium
         :reporter_user_type => REPORTER_USER_TYPE_VALUES.include?(reporter_user_type) ? reporter_user_type : REPORTER_USER_TYPE_VALUES.first,
         :desired_result => desired_result
         )
-      post("blog_post/user_feedback", options, &block)
+      rest_post("blog_post/user_feedback", options, &block)
     end
   end
 end

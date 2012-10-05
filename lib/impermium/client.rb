@@ -33,7 +33,7 @@ module Impermium
       end
     end
 
-    def post(url, options={})
+    def rest_post(url, options={})
       api_connection.post do |req|
         req.url api_url(url)
         req.body = options
@@ -44,9 +44,9 @@ module Impermium
 
     def api_url(request_path)
       url = URI.join(endpoint,
-        request_path[-1] == '/' ? request_path  : request_path + "/",
         api_version + "/",
-        api_key + "/").to_s
+        api_key + "/",
+        request_path[-1] == '/' ? request_path  : request_path + "/").to_s
     end
 
     private

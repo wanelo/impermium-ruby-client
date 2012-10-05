@@ -5,7 +5,7 @@ module Impermium
         :user_id => user_id,
         :profile_id => profile_id
         )
-      post("profile", options, &block)
+      rest_post("profile", options, &block)
     end
     
     def profile_analyst_feedback(user_id, profile_id, desired_result, options={}, &block)
@@ -14,7 +14,7 @@ module Impermium
         :profile_id => profile_id,
         :desired_result => desired_result
         )
-      post("profile/analyst_feedback", options, &block)
+      rest_post("profile/analyst_feedback", options, &block)
     end
   end
 end

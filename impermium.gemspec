@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.date = Time.now.strftime('%Y-%m-%d')
 
-  s.authors     = ["Juanjo Bazán", "Bosko Ivanisevic", "Neil Berkman"]
-  s.email       = ["jjbazan@gmail.com"]
-  s.homepage    = "https://github.com/weheartit/impermium"
+  s.authors     = ["Tejaswi Nadahalli"]
+  s.email       = ["tejaswi@impermium.com"]
+  s.homepage    = "https://github.com/impermium/impermium-ruby-client"
   s.summary     = "Impermium API wrapper"
-  s.description = "Ruby wrapper for the Impermium social spam API"
+  s.description = "Ruby wrapper for the Impermium API"
 
   s.add_dependency "faraday_middleware", ">= 0.8.8"
   s.add_dependency "hashie", "~> 1.2.0"
