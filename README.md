@@ -57,22 +57,22 @@ Each method accepts the mandatory arguments of the corresponding API call, and t
   - `client.login(user_id, attempt_id)`
   - `client.login_analyst_feedback(user_id, attempt_id, desired_result)`
 
-###__CONTENT__###
-    + __Post:__
-      - `client.post(user_id, post_id, content)`
-      - `client.post_analyst_feedback(user_id, post_id, desired_result)`
-      - `client.post_user_feedback(user_id, post_id, reporter_user_type, desired_result)`
+####__CONTENT__####
++ __Post:__
+  - `client.post(user_id, post_id, content)`
+  - `client.post_analyst_feedback(user_id, post_id, desired_result)`
+  - `client.post_user_feedback(user_id, post_id, reporter_user_type, desired_result)`
   
-    + __Url:__
-      - `client.url(user_id, url)`
-      - `client.url_analyst_feedback(user_id, url, desired_result)`
-      - `client.url_user_feedback(user_id, url, reporter_user_type, desired_result)`
++ __Url:__
+  - `client.url(user_id, url)`
+  - `client.url_analyst_feedback(user_id, url, desired_result)`
+  - `client.url_user_feedback(user_id, url, reporter_user_type, desired_result)`
 
 ###__MESSAGING__###
-    + __Message:__
-      - `client.message(user_id, message_id, content)`
-      - `client.message_analyst_feedback(user_id, message_id, desired_result)`
-      - `client.message_user_feedback(user_id, message_id, desired_result)`
++ __Message:__
+  - `client.message(user_id, message_id, content)`
+  - `client.message_analyst_feedback(user_id, message_id, desired_result)`
+  - `client.message_user_feedback(user_id, message_id, desired_result)`
   
 
 Additional arguments can be passed through the hash which is the last argument for every method
