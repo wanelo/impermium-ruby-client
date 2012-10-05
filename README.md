@@ -46,7 +46,7 @@ Finally, the Impermium client can be configured through a block with:
 
 Each method accepts the mandatory arguments of the corresponding API call, and takes an options hash and a block as optional arguments. Here is the list of all supported methods and their mandatory arguments:
  
-* __Account__
+###__ACCOUNT__###
     + __Signup:__
       - `client.signup(user_id)`
       - `client.signup_analyst_feedback(user_id, desired_result)`
@@ -57,7 +57,7 @@ Each method accepts the mandatory arguments of the corresponding API call, and t
       - `client.login(user_id, attempt_id)`
       - `client.login_analyst_feedback(user_id, attempt_id, desired_result)`
 
-* __CONTENT__
+###__CONTENT__###
     + __Post:__
       - `client.post(user_id, post_id, content)`
       - `client.post_analyst_feedback(user_id, post_id, desired_result)`
@@ -68,7 +68,7 @@ Each method accepts the mandatory arguments of the corresponding API call, and t
       - `client.url_analyst_feedback(user_id, url, desired_result)`
       - `client.url_user_feedback(user_id, url, reporter_user_type, desired_result)`
 
-* __MESSAGING__
+###__MESSAGING__###
     + __Message:__
       - `client.message(user_id, message_id, content)`
       - `client.message_analyst_feedback(user_id, message_id, desired_result)`
