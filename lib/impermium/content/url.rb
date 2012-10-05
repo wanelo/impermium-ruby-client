@@ -23,7 +23,8 @@ module Impermium
       options.merge!(
         :user_id => user_id,
         :url => url,                
-        :reporter_user_type => REPORTER_USER_TYPE_VALUES.include?(reporter_user_type) ? reporter_user_type : REPORTER_USER_TYPE_VALUES.first
+        :reporter_user_type => REPORTER_USER_TYPE_VALUES.include?(reporter_user_type) ? reporter_user_type : REPORTER_USER_TYPE_VALUES.first,
+        :desired_result => desired_result                     
         )
       rest_post("url/user_feedback", options, &block)
     end
