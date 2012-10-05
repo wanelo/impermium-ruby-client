@@ -57,6 +57,8 @@ Each method accepts the mandatory arguments of the corresponding API call, and t
       - `client.login(user_id, attempt_id)`
       - `client.login_analyst_feedback(user_id, attempt_id, desired_result)`
 
+
+
 * __CONTENT__
     + __Post:__
       - `client.post(user_id, post_id, content)`
@@ -67,6 +69,8 @@ Each method accepts the mandatory arguments of the corresponding API call, and t
       - `client.url(user_id, url)`
       - `client.url_analyst_feedback(user_id, url, desired_result)`
       - `client.url_user_feedback(user_id, url, reporter_user_type, desired_result)`
+
+
 
 * __MESSAGING__
     + __Message:__
